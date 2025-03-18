@@ -21,6 +21,8 @@ public class AutoMapperProfile : Profile
 
         CreateMap<Drzava, DrzavaDTO>();
         CreateMap<Grad, GradDTO>();
+        CreateMap<GradDTO,Grad>();
+        CreateMap<DrzavaDTO,Drzava>();
         
     }
 }
