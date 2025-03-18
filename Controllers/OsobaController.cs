@@ -3,35 +3,29 @@ using ImenikApp.Models;
 using ImenikApp.Services;
 using ImenikApp.DTO;
 
-namespace ImenikApp.Controllers
-{
+namespace ImenikApp.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class OsobeController : ControllerBase
-    {
+    public class OsobeController : ControllerBase {
         private readonly IOsobaService _osobaService;
-
-        public OsobeController(IOsobaService osobaService)
-        {
+        public OsobeController(IOsobaService osobaService) {
             _osobaService = osobaService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Osoba>>> GetAllOsobe() {
+        public async Task<ActionResult<IEnumerable<OsobaDTO>>> GetAllOsobe() {
             return Ok(await _osobaService.GetAllOsobe());  
         }
 
-
         // GET: api/Osobe/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Osoba>> GetOsoba(int id) {
+        public async Task<ActionResult<OsobaDTO>> GetOsoba(int id) {
             return Ok (await _osobaService.GetOsobaById(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult<Osoba>> PostOsoba(OsobaDTO osoba) {
-            await _osobaService.CreateOsoba(osoba);
-            return StatusCode(201);
+        public async Task<ActionResult<OsobaPostDTO>> PostOsoba(OsobaDTO osoba) {
+            return Ok (await _osobaService.CreateOsoba(osoba));
         }
 
         // PUT: api/Osober/5

@@ -19,7 +19,7 @@ namespace ImenikApp.Controllers {
    }
     
    [HttpGet("{id}")]
-   public async Task<ActionResult> getDrzava(int id){
+   public async Task<ActionResult<DrzavaDTO>> getDrzava(int id){
         return Ok (await _drzavaService.GetDrzavaById(id));
    }
 

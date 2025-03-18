@@ -58,6 +58,9 @@ app.MapGet("/weatherforecast", () =>
 .WithOpenApi();
 
 app.MapControllers();
+app.UseStaticFiles(); 
+app.MapGet("/", () => Results.Redirect("/imenik.html")); 
+
 
 app.Run();
 

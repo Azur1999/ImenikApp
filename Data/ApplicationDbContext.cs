@@ -1,10 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using ImenikApp.Models;
 
-namespace ImenikApp.Data
-{
-    public class ApplicationDbContext : DbContext
-{
+namespace ImenikApp.Data {
+    public class ApplicationDbContext : DbContext {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     { }
@@ -13,12 +11,10 @@ namespace ImenikApp.Data
     public DbSet<Grad> Gradovi { get; set; }
     public DbSet<Osoba> Osobe { get; set; }  
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
+    protected override void OnModelCreating(ModelBuilder modelBuilder) {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<Drzava>(entity =>
-        {
+        modelBuilder.Entity<Drzava>(entity => {
             entity.ToTable("Drzava");
 
             entity.HasKey(d => d.DrzavaId);
@@ -37,8 +33,6 @@ namespace ImenikApp.Data
                 new { DrzavaId = 3, NazivDrzava = "Srbija" },
                 new { DrzavaId = 4, NazivDrzava = "Spanija" },
                 new { DrzavaId = 5, NazivDrzava = "Njemacka" }
-            
-        
             );
         });
 

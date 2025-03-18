@@ -1,10 +1,8 @@
 using ImenikApp.DTO;
 using ImenikApp.Models;
 
-namespace ImenikApp.Services
-{
-    public interface IDrzavaService
-    {
+namespace ImenikApp.Services {
+    public interface IDrzavaService {
         Task<IEnumerable<DrzavaDTO>> GetAllDrzave();
         Task<DrzavaDTO?> GetDrzavaById(int id);
         Task AddDrzava(DrzavaDTO drzava);
