@@ -1,8 +1,8 @@
+using ImenikApp.Models;
 
 namespace ImenikApp.DTO {
-public class DrzavaDTO {
+public class DrzavaResponseDTO {
     public int DrzavaId {get;set;}
     public required string NazivDrzava { get; set; }  
 }
-
 }

@@ -3,12 +3,14 @@ using ImenikApp.Models;
 
 namespace ImenikApp.Services {
     public interface IDrzavaService {
-        Task<IEnumerable<DrzavaDTO>> GetAllDrzave();
-        Task<DrzavaDTO?> GetDrzavaById(int id);
-        Task AddDrzava(DrzavaDTO drzava);
-        Task UpdateDrzava(DrzavaDTO drzava);
+        Task<IEnumerable<DrzavaResponseDTO>> GetAllDrzave();
+        Task<DrzavaResponseDTO?> GetDrzavaById(int id);
+        
+        // treba uzimati DrzavaPostRequestDTO ali nam zasad add i update  metoda ne treba
+        Task AddDrzava(DrzavaResponseDTO drzava);
+        Task UpdateDrzava(DrzavaResponseDTO drzava);
         Task DeleteDrzava(int id);
+        Task<GradResponseDTO> getGradoviByDrzava (int drzavaId);
 
-        Task<IEnumerable<GradDTO>> getGradoviByDrzava(int id);
     }
 }

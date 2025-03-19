@@ -7,36 +7,16 @@ namespace ImenikApp.Models {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OsobaId { get; set; } // ili Guuid
-
-        [Required]
-        [StringLength(50)]
         public required string Ime { get; set; }
-
-        [Required]
-        [StringLength(50)]
         public required string Prezime { get; set; }
-
-        [Required]
-        [RegularExpression(@"^\d{3}/\d{3}-\d{3}$", ErrorMessage = "Broj telefona nije u ispravnom formatu.")]
         public required string BrojTelefona { get; set; }
-
-        [Required]
-        public  PolEnum Pol { get; set; }
-
-        [Required]
-        [EmailAddress]
+        public  required PolEnum Pol { get; set; }
         public required  string Email { get; set; }
-
-        [Required]
         public required int GradId { get; set; } 
-        public required  Grad Grad { get; set; } 
-
-        [Required]
-        public  int DrzavaId { get; set; } 
-        public  required Drzava Drzava { get; set; } 
-
-        [Required]
-        public required DateTime DatumRodjenja { get; set; }
+        public Grad? Grad { get; set; } 
+        public  required int  DrzavaId { get; set; } 
+        public  Drzava? Drzava { get; set; } 
+        public required DateOnly DatumRodjenja { get; set; }
  
     }
 }

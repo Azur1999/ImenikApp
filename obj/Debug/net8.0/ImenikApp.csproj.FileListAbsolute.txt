@@ -1,0 +1,8 @@
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.csproj.AssemblyReference.cache
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.AssemblyInfoInputs.cache
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.AssemblyInfo.cs
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.csproj.CoreCompileInputs.cache
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.sourcelink.json

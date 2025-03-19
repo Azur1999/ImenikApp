@@ -11,24 +11,30 @@ namespace ImenikApp.Services {
             _drzavaRepository = drzavaRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<DrzavaDTO>> GetAllDrzave() {
-             return _mapper.Map<IEnumerable<DrzavaDTO>>(await _drzavaRepository.GetAllDrzaveAsync());
+        public async Task<IEnumerable<DrzavaResponseDTO>> GetAllDrzave() {
+             return _mapper.Map<IEnumerable<DrzavaResponseDTO>>(await _drzavaRepository.GetAllDrzaveAsync());
         }
-        public async Task AddDrzava(DrzavaDTO drzava) {
+
+        // u put i post trebaju kao ulazi nove DTO jer  DrzavaResponse sluzi samo za
+        //slanje podataka frontendu
+        //sad nam ne trebaju put i post
+        public async Task AddDrzava(DrzavaResponseDTO drzava) {
             await _drzavaRepository.AddDrzavaAsync(_mapper.Map<Drzava>(drzava)); 
         }
 
-        public async Task UpdateDrzava(DrzavaDTO drzava) {
+        public async Task UpdateDrzava(DrzavaResponseDTO drzava) {
             await _drzavaRepository.UpdateDrzavaAsync(_mapper.Map<Drzava>(drzava) );
         }
         public async Task DeleteDrzava(int id) {
             await _drzavaRepository.DeleteDrzavaAsync(id);
         }
-        public async Task<DrzavaDTO?> GetDrzavaById(int id) {
-           return _mapper.Map<DrzavaDTO> ( await _drzavaRepository.GetDrzavaByIdAsync(id));
+        public async Task<DrzavaResponseDTO?> GetDrzavaById(int id) {
+           return _mapper.Map<DrzavaResponseDTO> ( await _drzavaRepository.GetDrzavaByIdAsync(id));
         }
-        public async Task<IEnumerable<GradDTO>> getGradoviByDrzava(int id) {
-            return _mapper.Map<IEnumerable<GradDTO>>(await _drzavaRepository.GetGradoviByDrzava(id));
+
+        public async Task<GradResponseDTO> getGradoviByDrzava(int drzavaId) {
+             return _mapper.Map<GradResponseDTO>(await _drzavaRepository.GetGradoviByDrzava(drzavaId));
         }
+    
     }
 }

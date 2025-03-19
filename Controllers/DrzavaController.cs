@@ -14,18 +14,18 @@ namespace ImenikApp.Controllers {
    }
 
     [HttpGet]
-   public async Task<ActionResult<DrzavaDTO>> getDrzave() {
+   public async Task<ActionResult<DrzavaResponseDTO>> getDrzave() {
      return Ok (await _drzavaService.GetAllDrzave());
    }
     
    [HttpGet("{id}")]
-   public async Task<ActionResult<DrzavaDTO>> getDrzava(int id){
+   public async Task<ActionResult<DrzavaResponseDTO>> getDrzava(int id){
         return Ok (await _drzavaService.GetDrzavaById(id));
    }
 
    [HttpGet("gradovi/{id}")]
-   public async Task<ActionResult<GradDTO>> getGradoviByDrzavaId (int drzavaId) {
-      return Ok (await _drzavaService.getGradoviByDrzava(drzavaId));
+   public async Task<ActionResult<GradResponseDTO>> getGradoviByDrzavaId (int id) {
+      return Ok (await _drzavaService.getGradoviByDrzava(id));
    }
    }
 }

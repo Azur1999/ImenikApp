@@ -35,10 +35,8 @@ namespace ImenikApp.Data {
                 new { DrzavaId = 5, NazivDrzava = "Njemacka" }
             );
         });
-
         
-        modelBuilder.Entity<Grad>(entity =>
-        {
+        modelBuilder.Entity<Grad>(entity => {
             entity.ToTable("Grad");
 
             entity.HasKey(g => g.GradId);
@@ -73,7 +71,14 @@ namespace ImenikApp.Data {
                 new { GradId = 15, NazivGrad = "Berlin", DrzavaId = 5 },
                 new { GradId = 16, NazivGrad = "Frankfurt", DrzavaId = 5 }
             );
-        });    
+        });
+
+        modelBuilder.Entity<Osoba>()
+            .Property(o => o.Pol)
+            .HasConversion(
+                v => v.ToString(), // Kada se zapisuje u bazu, konvertuje se u string
+                v => (PolEnum)Enum.Parse(typeof(PolEnum), v) // Kada se učita iz baze, parsira se u PolEnum
+            );   
         
     }
 }

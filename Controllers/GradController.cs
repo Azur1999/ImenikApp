@@ -12,12 +12,12 @@ namespace ImenikApp.Controllers {
         _gradService = gradService;
    }
    [HttpGet]
-   public async Task<ActionResult<GradDTO>> getGradovi() {
+   public async Task<ActionResult<GradResponseDTO>> getGradovi() {
      return Ok (await _gradService.GetAllGrad());
    }
     
    [HttpGet("{id}")]
-   public async Task<ActionResult<GradDTO>> getGrad(int id) {
+   public async Task<ActionResult<GradResponseDTO>> getGrad(int id) {
         return Ok (await _gradService.GetGradById(id));
    }
 

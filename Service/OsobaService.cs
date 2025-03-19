@@ -15,19 +15,19 @@ namespace ImenikApp.Services {
             _mapper = mapper;
             
         }
-        public async Task<IEnumerable<OsobaDTO>> GetAllOsobe () {
-            return _mapper.Map<IEnumerable<OsobaDTO>>(await _osobaRepository.GetAllOsobeAsync());
+        public async Task<IEnumerable<OsobaResponseDTO>> GetAllOsobe () {
+            return _mapper.Map<IEnumerable<OsobaResponseDTO>>(await _osobaRepository.GetAllOsobeAsync());
         }
 
-        public async Task<OsobaDTO?> GetOsobaById(int id) {
-            return _mapper.Map<OsobaDTO>(await _osobaRepository.GetOsobaByIdAsync(id));
+        public async Task<OsobaResponseDTO?> GetOsobaById(int id) {
+            return _mapper.Map<OsobaResponseDTO>(await _osobaRepository.GetOsobaByIdAsync(id));
         }
 
-        public async Task<OsobaPostDTO> CreateOsoba(OsobaDTO osobaDto) {     
+        public async Task<OsobaPostResponseDTO> CreateOsoba(OsobaPostRequestDTO osobaDto) {     
             var o = await _osobaRepository.AddOsobaAsync(_mapper.Map<Osoba>(osobaDto));
-            return  _mapper.Map<OsobaPostDTO>(o);
+            return  _mapper.Map<OsobaPostResponseDTO>(o);
         }
-        public async Task UpdateOsoba(int id, OsobaDTO osobaDto) {
+        public async Task UpdateOsoba(int id, OsobaPutRequestDTO osobaDto) {
             var osoba = _mapper.Map<Osoba>(osobaDto);
             osoba.OsobaId = id;
             await _osobaRepository.UpdateOsobaAsync(osoba);

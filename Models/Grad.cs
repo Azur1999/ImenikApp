@@ -1,8 +1,8 @@
 namespace ImenikApp.Models {
     public class Grad {
-        public int GradId { get; set; } // istraziti private
+        public int GradId { get; set; } 
         public required string NazivGrad { get; init; }
-        public int DrzavaId { get; set; }
-        public required Drzava Drzava { get; set; }
+        public required int DrzavaId { get; set; }
+        public Drzava? Drzava { get; set; }
     }
 }
