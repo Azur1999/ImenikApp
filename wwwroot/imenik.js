@@ -24,11 +24,10 @@ function ucitajOsobe() {
         .then(response => response.json())
         .then(data => {
             const tbody = document.getElementById('imenikBody');
-            tbody.innerHTML = ''; // očisti prethodne podatke
-
+            tbody.innerHTML = ''; 
             data.forEach(osoba => {
                 const tr = document.createElement('tr');
-                tr.setAttribute("data-id", osoba.osobaId); // Dodaj ID osobe kao data atribut
+                tr.setAttribute("data-id", osoba.osobaId); 
 
                 tr.innerHTML = `
                     <td>${osoba.ime}</td>
@@ -49,8 +48,7 @@ function ucitajOsobe() {
                 tbody.appendChild(tr);
             });
 
-            // Dodaj ovdje pozive za event listenere (ako ih imaš)
-            // npr: dodajEventeZaBrisanje(); dodajEventeZaAzuriranje();
+            
         })
         .catch(error => {
             console.error('Greška prilikom učitavanja osoba:', error);
