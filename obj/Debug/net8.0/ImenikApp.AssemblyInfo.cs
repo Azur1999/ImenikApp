@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ImenikApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab0796e3a125bf6d29118785087e131af5f71ddd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ed221fa19a43a12980f46bb8fa482127c4da41d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ImenikApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImenikApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
