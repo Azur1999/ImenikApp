@@ -32,8 +32,8 @@ namespace ImenikApp.Services {
            return _mapper.Map<DrzavaResponseDTO> ( await _drzavaRepository.GetDrzavaByIdAsync(id));
         }
 
-        public async Task<GradResponseDTO> getGradoviByDrzava(int drzavaId) {
-             return _mapper.Map<GradResponseDTO>(await _drzavaRepository.GetGradoviByDrzava(drzavaId));
+        public async Task<IEnumerable<GradResponseDTO>> getGradoviByDrzava(int drzavaId) {
+             return _mapper.Map<IEnumerable<GradResponseDTO>>(await _drzavaRepository.GetGradoviByDrzava(drzavaId));
         }
     
     }

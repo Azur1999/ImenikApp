@@ -10,10 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('drzava').addEventListener('change', () => {
-        const drzavaId = document.getElementById('drzava').value;
-        console.log('Selektovani drzavaId:', drzavaId); // Proveri vrednost
-
-        ucitajGradove(drzavaId);
+        const id = document.getElementById('drzava').value;
+        console.log(id)
+        ucitajGradove(id);
 
     });
 
@@ -43,39 +42,21 @@ function ucitajOsobe() {
                     <td>${osoba.starost}</td>
                     <td>
                         <button class="btn btn-danger btn-brisi" data-id="${osoba.osobaId}">Obriši</button>
+                        <button class="btn btn-warning btn-azuriraj" data-id="${osoba.osobaId}">Ažuriraj</button>
                     </td>
                 `;
 
                 tbody.appendChild(tr);
             });
 
-            // Dodaj event listener za dugme brisanja
-            document.querySelectorAll('.btn-brisi').forEach(button => {
-                button.addEventListener('click', function() {
-                    const osobaId = this.getAttribute('data-id');
-                    if (confirm("Da li ste sigurni da želite obrisati ovu osobu?")) {
-                        fetch(`http://localhost:5297/api/osobe/${osobaId}`, {
-                            method: 'DELETE'
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                alert("Osoba je uspešno obrisana.");
-                                // Ukloni red iz tabele
-                                this.closest('tr').remove();
-                            } else {
-                                alert("Došlo je do greške prilikom brisanja.");
-                            }
-                        })
-                        .catch(error => {
-                            console.error("Greška:", error);
-                            alert("Došlo je do greške prilikom brisanja.");
-                        });
-                    }
-                });
-            });
+            // Dodaj ovdje pozive za event listenere (ako ih imaš)
+            // npr: dodajEventeZaBrisanje(); dodajEventeZaAzuriranje();
         })
-        .catch(error => console.error('Greška pri učitavanju osoba:', error));
+        .catch(error => {
+            console.error('Greška prilikom učitavanja osoba:', error);
+        });
 }
+
 
 
 function ucitajDrzave() {
@@ -94,13 +75,13 @@ function ucitajDrzave() {
         });
 }
 
-function ucitajGradove(drzavaId) {
-    console.log('Selektovani drzavaId:', drzavaId);
-    fetch(`http://localhost:5297/api/Drzava/gradovi/${drzavaId}`)
+function ucitajGradove(id) {
 
-    .then(response => response.json())
+    console.log('Selektovani drzavaId:', id);
+    fetch(`http://localhost:5297/api/Drzava/gradovi/${id}`)
+        .then(response => response.json())
         .then(data => {
-            console.log('Selektovani drzava', data);
+            console.log('Selektovani ', data);
 
             const gradSelect = document.getElementById('grad');
             gradSelect.innerHTML = '<option value="">Odaberite grad</option>';
@@ -120,7 +101,12 @@ function pripremiFormuZaDodavanje() {
     modal.show();
 }
 
-ocument.querySelector("#imenikBody").addEventListener('click', function(event) {
+function pripremiFormuZaAzuriranje() {
+
+
+}
+
+document.querySelector("#imenikBody").addEventListener('click', function(event) {
     if (event.target.classList.contains("btn-brisi")) {
         const osobaId = event.target.getAttribute("data-id");
 
@@ -142,6 +128,21 @@ ocument.querySelector("#imenikBody").addEventListener('click', function(event) {
                 alert("Došlo je do greške prilikom brisanja.");
             });
         }
+
+        if (event.target.classList.contains("btn-azuriraj")) {
+            const osobaId = event.target.getAttribute("data-id");
+        
+            // Prvo dohvati osobu (može i bez fetch-a ako imaš data[])
+            fetch(`http://localhost:5297/api/osobe/${osobaId}`)
+                .then(response => response.json())
+                .then(osoba => {
+                    pripremiFormuZaAzuriranje(osoba); // Funkcija popuni formu za edit
+                })
+                .catch(error => {
+                    console.error("Greška:", error);
+                });
+        }
+        
     }
 });
 

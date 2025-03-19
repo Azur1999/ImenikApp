@@ -24,7 +24,7 @@ namespace ImenikApp.Controllers {
    }
 
    [HttpGet("gradovi/{id}")]
-   public async Task<ActionResult<GradResponseDTO>> getGradoviByDrzavaId (int id) {
+   public async Task<ActionResult<IEnumerable<GradResponseDTO>>> getGradoviByDrzavaId (int id) {
       return Ok (await _drzavaService.getGradoviByDrzava(id));
    }
    }

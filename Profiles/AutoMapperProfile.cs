@@ -18,12 +18,12 @@ public class AutoMapperProfile : Profile {
                 DateTime.Now.Year - src.DatumRodjenja.Year - 
                 (DateTime.Now.DayOfYear < src.DatumRodjenja.DayOfYear ? 1 : 0)
             ));
+        CreateMap<Grad,GradResponseDTO>();
+        CreateMap<OsobaPostRequestDTO,Osoba>();
 
+        CreateMap<OsobaPutRequestDTO,Osoba>();
         CreateMap<OsobaResponseDTO, Osoba>();
-
-
-
-
+        CreateMap<Osoba,OsobaResponseDTO>();
 
         CreateMap<Drzava, DrzavaResponseDTO>();
         CreateMap<Grad, GradResponseDTO>();

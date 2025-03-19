@@ -1,11 +1,3 @@
-C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.csproj.AssemblyReference.cache
-C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.AssemblyInfoInputs.cache
-C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.AssemblyInfo.cs
-C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.csproj.CoreCompileInputs.cache
-C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.sourcelink.json
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\appsettings.json
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\ImenikApp.staticwebassets.runtime.json
@@ -157,6 +149,14 @@ C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\runtimes\win\lib\net
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.csproj.AssemblyReference.cache
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.AssemblyInfoInputs.cache
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.AssemblyInfo.cs
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.csproj.CoreCompileInputs.cache
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\ImenikApp.sourcelink.json
 C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\AMG_Computers\Documents\ImenikApp\obj\Debug\net8.0\staticwebassets\msbuild.ImenikApp.Microsoft.AspNetCore.StaticWebAssets.props

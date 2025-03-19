@@ -10,7 +10,7 @@ namespace ImenikApp.Services {
         Task AddDrzava(DrzavaResponseDTO drzava);
         Task UpdateDrzava(DrzavaResponseDTO drzava);
         Task DeleteDrzava(int id);
-        Task<GradResponseDTO> getGradoviByDrzava (int drzavaId);
+        Task<IEnumerable<GradResponseDTO>> getGradoviByDrzava (int drzavaId);
 
     }
 }
