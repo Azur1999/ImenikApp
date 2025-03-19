@@ -96,7 +96,8 @@ function ucitajDrzave() {
 
 function ucitajGradove(drzavaId) {
     console.log('Selektovani drzavaId:', drzavaId);
-    fetch(`http://localhost:5297/api/Drzava/gradovi?drzavaId=`)
+    fetch(`http://localhost:5297/api/Drzava/gradovi/${drzavaId}`)
+
     .then(response => response.json())
         .then(data => {
             console.log('Selektovani drzava', data);
@@ -119,8 +120,7 @@ function pripremiFormuZaDodavanje() {
     modal.show();
 }
 
-
-document.querySelector("#imenikBody").addEventListener('click', function(event) {
+ocument.querySelector("#imenikBody").addEventListener('click', function(event) {
     if (event.target.classList.contains("btn-brisi")) {
         const osobaId = event.target.getAttribute("data-id");
 
@@ -144,5 +144,7 @@ document.querySelector("#imenikBody").addEventListener('click', function(event) 
         }
     }
 });
+
+
 
 
