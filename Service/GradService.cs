@@ -13,29 +13,29 @@ namespace ImenikApp.Services {
             _gradRepository = gradRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<GradDTO>> GetAllGrad() {
-            return _mapper.Map<IEnumerable<GradDTO>> ( await _gradRepository.GetAllGradAsync());
+        public async Task<IEnumerable<GradResponseDTO>> GetAllGrad() {
+            return _mapper.Map<IEnumerable<GradResponseDTO>> ( await _gradRepository.GetAllGradAsync());
         }
 
-        public async Task<GradDTO?> GetGradById(int id) {
-            return _mapper.Map<GradDTO> (await _gradRepository.GetGradByIdAsync(id));
+        public async Task<GradResponseDTO?> GetGradById(int id) {
+            return _mapper.Map<GradResponseDTO> (await _gradRepository.GetGradByIdAsync(id));
         }
 
-        public async Task AddGrad(GradDTO grad)
+        public async Task AddGrad(GradResponseDTO grad)
         {
             await _gradRepository.AddGradAsync(_mapper.Map<Grad>(grad));
         }
 
         
-        public async Task UpdateGrad(GradDTO grad) {
+        public async Task UpdateGrad(GradResponseDTO grad) {
             await _gradRepository.UpdateGradAsync(_mapper.Map<Grad>(grad));
         }
         public async Task DeleteGrad(int id) {
             await _gradRepository.DeleteGradAsync(id);
         }
 
-        public async Task<GradDTO?> GetGradByName(string naziv) {
-            return _mapper.Map<GradDTO> (await _gradRepository.GetGradByNameAsync(naziv));
+        public async Task<GradResponseDTO?> GetGradByName(string naziv) {
+            return _mapper.Map<GradResponseDTO> (await _gradRepository.GetGradByNameAsync(naziv));
         }
     }
 }
