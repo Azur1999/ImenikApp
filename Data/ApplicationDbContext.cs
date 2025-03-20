@@ -73,13 +73,33 @@ namespace ImenikApp.Data {
             );
         });
 
-        modelBuilder.Entity<Osoba>()
-            .Property(o => o.Pol)
-            .HasConversion(
-                v => v.ToString(), // Kada se zapisuje u bazu, konvertuje se u string
-                v => (PolEnum)Enum.Parse(typeof(PolEnum), v) // Kada se učita iz baze, parsira se u PolEnum
-            );   
+        modelBuilder.Entity<Osoba>(entity => {
+    
+            entity.HasKey(o => o.OsobaId);
+            entity.Property(o => o.Ime).IsRequired().HasMaxLength(50);
+            entity.Property(o => o.Prezime).IsRequired().HasMaxLength(50);
         
+            entity.HasOne(o => o.Grad)                
+                  .WithMany()                         
+                  .HasForeignKey(o => o.GradId)       
+                  .OnDelete(DeleteBehavior.Restrict); 
+        
+            
+            entity.HasIndex(o => o.BrojTelefona)
+                    .IsUnique();
+            entity.HasIndex(o => o.Email).IsUnique();
+            entity.HasOne(o => o.Drzava)
+                  .WithMany()
+                  .HasForeignKey(o => o.DrzavaId)
+                  .OnDelete(DeleteBehavior.Restrict);
+            entity.Property(o => o.Pol)
+                    .HasConversion(
+                        v => v.ToString(), // Kada se zapisuje u bazu, konvertuje se u string
+                        v => (PolEnum)Enum.Parse(typeof(PolEnum), v) // Kada se učita iz baze, parsira se u PolEnum
+            );
+    });
+
+           
     }
 }
 

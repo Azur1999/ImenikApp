@@ -1,6 +1,5 @@
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\appsettings.json
-C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\ImenikApp.staticwebassets.runtime.json
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\ImenikApp.exe
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\ImenikApp.deps.json
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\ImenikApp.runtimeconfig.json
@@ -10,6 +9,7 @@ C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\Humanizer.dll
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\AMG_Computers\Documents\ImenikApp\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll

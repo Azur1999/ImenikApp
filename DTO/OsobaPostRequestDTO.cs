@@ -15,7 +15,6 @@ namespace ImenikApp.DTO{
         public required string Email { get; set; }
         public required int GradId {get; set;}
         public required int DrzavaId {get; set;}
-        
         public required DateOnly DatumRodjenja { get; set; }
     }
 

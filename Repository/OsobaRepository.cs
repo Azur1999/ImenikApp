@@ -1,6 +1,7 @@
 using ImenikApp.Models;
 using Microsoft.EntityFrameworkCore;
 using ImenikApp.Data;
+using ImenikApp.DTO;
 
 namespace ImenikApp.Repository {
     public class OsobaRepository : IOsobaRepository {
@@ -13,7 +14,8 @@ namespace ImenikApp.Repository {
             return await _context.Osobe
             .Include(o => o.Grad)    // Uključujemo pocvezan entitet Grad
             .Include(o => o.Drzava)  
-            .ToListAsync(); 
+           .ToListAsync(); 
+
         }
 
         public async Task<Osoba?> GetOsobaByIdAsync(int id) {
@@ -21,12 +23,16 @@ namespace ImenikApp.Repository {
         }
 
         public async Task<Osoba> AddOsobaAsync(Osoba osoba) {
+            var grad = await _context.Gradovi.FindAsync(osoba.GradId);
+            var drzava = await _context.Drzave.FindAsync(osoba.DrzavaId);
+            osoba.Grad = grad;
+            osoba.Drzava = drzava;
             await _context.Osobe.AddAsync(osoba);
             await _context.SaveChangesAsync();
+            
             return osoba;
             //entity frejmvork ce dodati id osobi
         }
-
         public async Task UpdateOsobaAsync(Osoba osoba) {
             _context.Osobe.Update(osoba);
             await _context.SaveChangesAsync();

@@ -25,7 +25,6 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddControllers();
 
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

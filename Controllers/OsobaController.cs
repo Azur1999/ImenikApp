@@ -2,19 +2,23 @@ using Microsoft.AspNetCore.Mvc;
 using ImenikApp.Models;
 using ImenikApp.Services;
 using ImenikApp.DTO;
+using FluentValidation;
 
 namespace ImenikApp.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class OsobeController : ControllerBase {
         private readonly IOsobaService _osobaService;
-        public OsobeController(IOsobaService osobaService) {
+        private readonly IValidator<OsobaPostRequestDTO> _osobaValidator;
+
+        public OsobeController(IOsobaService osobaService,IValidator<OsobaPostRequestDTO> osobaValidator) {
             _osobaService = osobaService;
+            _osobaValidator = osobaValidator;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OsobaResponseDTO>>> GetAllOsobe() {
-            return Ok(await _osobaService.GetAllOsobe());  
+            return Ok(await _osobaService.GetAllOsobe());   
         }
 
         // GET: api/Osobe/5
@@ -25,7 +29,12 @@ namespace ImenikApp.Controllers {
 
         [HttpPost]
         public async Task<ActionResult<OsobaPostResponseDTO>> PostOsoba(OsobaPostRequestDTO osoba) {
-            return StatusCode (201,await _osobaService.CreateOsoba(osoba));
+            var validationResult = await _osobaValidator.ValidateAsync(osoba);
+            if ((!ModelState.IsValid) || (!validationResult.IsValid))  
+                return BadRequest(ModelState);
+            
+            var response = await _osobaService.CreateOsoba(osoba);
+            return CreatedAtAction(nameof(GetOsoba), new { id = response.OsobaId }, response);
         }
 
         // PUT: api/Osober/5

@@ -15,7 +15,7 @@ namespace ImenikApp.Models {
         public required int GradId { get; set; } 
         public Grad? Grad { get; set; } 
         public  required int  DrzavaId { get; set; } 
-        public  Drzava? Drzava { get; set; } 
+        public Drzava? Drzava { get; set; } 
         public required DateOnly DatumRodjenja { get; set; }
  
     }

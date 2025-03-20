@@ -16,11 +16,13 @@ namespace ImenikApp.Services {
             
         }
         public async Task<IEnumerable<OsobaResponseDTO>> GetAllOsobe () {
-            return _mapper.Map<IEnumerable<OsobaResponseDTO>>(await _osobaRepository.GetAllOsobeAsync());
+            return _mapper.Map<IEnumerable<OsobaResponseDTO>>
+                (await _osobaRepository.GetAllOsobeAsync());
         }
 
         public async Task<OsobaResponseDTO?> GetOsobaById(int id) {
-            return _mapper.Map<OsobaResponseDTO>(await _osobaRepository.GetOsobaByIdAsync(id));
+            var o = await _osobaRepository.GetOsobaByIdAsync(id);
+            return _mapper.Map<OsobaResponseDTO>(o);
         }
 
         public async Task<OsobaPostResponseDTO> CreateOsoba(OsobaPostRequestDTO osobaDto) {     

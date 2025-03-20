@@ -4,6 +4,7 @@ using ImenikApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImenikApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250320014601_newUpdate")]
+    partial class newUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,7 +201,7 @@ namespace ImenikApp.Migrations
 
                     b.Property<string>("BrojTelefona")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateOnly>("DatumRodjenja")
                         .HasColumnType("date");
@@ -208,15 +211,14 @@ namespace ImenikApp.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GradId")
                         .HasColumnType("int");
 
                     b.Property<string>("Ime")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pol")
                         .IsRequired()
@@ -224,18 +226,11 @@ namespace ImenikApp.Migrations
 
                     b.Property<string>("Prezime")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OsobaId");
 
-                    b.HasIndex("BrojTelefona")
-                        .IsUnique();
-
                     b.HasIndex("DrzavaId");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
 
                     b.HasIndex("GradId");
 
@@ -258,13 +253,13 @@ namespace ImenikApp.Migrations
                     b.HasOne("ImenikApp.Models.Drzava", "Drzava")
                         .WithMany()
                         .HasForeignKey("DrzavaId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ImenikApp.Models.Grad", "Grad")
                         .WithMany()
                         .HasForeignKey("GradId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Drzava");
